@@ -1,0 +1,7 @@
+.vscode/
+mod/
+Modules/
+
+*.mod
+*.o
+uuidgenerator
