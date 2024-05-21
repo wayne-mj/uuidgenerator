@@ -12,6 +12,7 @@ program uuidgenerator
     
     ! Local variables
     character(len=16) :: hex_chars = "0123456789abcdef"                 ! Hexadecimal character set
+    character(len=16) :: timestamp_str                                  ! Timestamp as a string in hex
     real(dp) :: my_seconds_since_epoch                                  ! Seconds since epoch
     integer  :: left, right, timestamp                                  ! Timestamp
     character(len=1) :: version
@@ -22,7 +23,10 @@ program uuidgenerator
     left = int(floor(my_seconds_since_epoch))                           ! with this that included the
     right = int((my_seconds_since_epoch - real(left, dp)) * 10**6)      ! timestamp in the generation
     timestamp = left + right                                            ! of the UUID. But I have not yet.
-    
+    timestamp_str = trim(adjustl(int2hex(timestamp)))
+
+    print *, timestamp_str
+
     ! Generate a UUID
     version = ''
     uuid(1:8) = hex_string(hex_chars, 8,version)
@@ -35,7 +39,7 @@ program uuidgenerator
     version = ''
     uuid(20:23) = hex_string(hex_chars, 4,version)
     uuid(24:24) = '-'
-    uuid(25:36) = hex_string(hex_chars, 12,version)
+    uuid(25:36) = hex_string(hex_chars, 12,timestamp_str)
 
     print *, uuid
 
