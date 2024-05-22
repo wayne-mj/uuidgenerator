@@ -5,7 +5,7 @@ module hexstring
     function hex_string(chars, length, static) result(str)
         character(len=16), intent(in) :: chars                      ! Character set
         integer, intent(in) :: length                               ! Length of the string
-        character(len=1), intent(in) :: static                     ! Static character set
+        character(len=*), intent(in) :: static                     ! Static character set
         character(len=length) :: str                                ! Resulting string
         integer :: i, start                                         ! Loop index
         real :: rnum                                                ! Random number       
@@ -37,7 +37,7 @@ module hexstring
         character(len=16) :: str                                    ! Resulting string
 
         ! Convert the integer to a hex string
-        write(str, '(Z0)') num
+        write(str, '(Z10)') num
     end function int2hex
 
 end module hexstring

@@ -25,7 +25,7 @@ program uuidgenerator
     timestamp = left + right                                            ! of the UUID. But I have not yet.
     timestamp_str = trim(adjustl(int2hex(timestamp)))
 
-    print *, timestamp_str
+    ! print *, timestamp_str
 
     ! Generate a UUID
     version = ''
