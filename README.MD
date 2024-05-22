@@ -3,3 +3,8 @@
 Basic UUID generator written in Fortran.
 
 I intend on expanding it as I reacquaint myself with Fortran programming.
+
+### Updated
+
+Added the timestamp feature by way of using the epoch time.  Adding the left side of the decimal, and the right side * 10^6
+and converting to HEX to create a timestamp.
