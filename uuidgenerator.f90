@@ -6,9 +6,9 @@ program uuidgenerator
     implicit none
 
     ! Define the kind of real numbers to use
-    integer, parameter :: sp = selected_real_kind(p=6) !kind(1.0)
+    !integer, parameter :: sp = selected_real_kind(p=6) !kind(1.0)
     integer, parameter :: dp = selected_real_kind(p=15) !kind(1.0d0)
-    integer, parameter :: qp = selected_real_kind(p=33) !kind(1.0q0)
+    !integer, parameter :: qp = selected_real_kind(p=33) !kind(1.0q0)
     
     ! Local variables
     character(len=16) :: hex_chars = "0123456789abcdef"                 ! Hexadecimal character set
