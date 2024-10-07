@@ -5,13 +5,16 @@ module hexstring
     function hex_string(chars, length, static) result(str)
         character(len=16), intent(in) :: chars                      ! Character set
         integer, intent(in) :: length                               ! Length of the string
-        character(len=*), intent(in) :: static                     ! Static character set
+        character(len=*), intent(in) :: static                      ! Static character set
         character(len=length) :: str                                ! Resulting string
         integer :: i, start                                         ! Loop index
+        integer :: seed(8)                                          ! Seed for random number generator
         real :: rnum                                                ! Random number       
         
         ! Initialize the random number generator
-        call random_seed()
+        call random_seed()                                          !
+        call system_clock(count=seed(1))                            ! This uses the system clock
+        call random_seed(put=seed)                                  !
 
         ! Generate the random string
         if (len_trim(static) == 0) then
