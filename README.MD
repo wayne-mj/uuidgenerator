@@ -14,3 +14,5 @@ Sample output:
 ./uuidgenerator
  3664f7e9-0587-4353-0dfe-20C338518f79
 ```
+
+All UUIDs are random.
